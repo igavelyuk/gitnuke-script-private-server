@@ -1,0 +1,28 @@
+#! /bin/bash
+echo "# Create /git/YEAR/projectname.git"
+echo "# git init --bare --shared"
+echo "# usage ./gitnuke.sh projectname"
+ls -al "/git/2021"
+cd "/git/2021"
+echo "Enter git directory"
+mkdir "$1.git"
+cd "$1.git"
+echo $(git init --bare --shared)
+printf \n
+echo "# INIT ON YOUR COMPUTER #"
+echo "git init"
+echo "git add ."
+echo "git commit -m 'initial commit'"
+echo "git remote add origin ssh://git@SERVERIP:PORTNUM/git/2021/yourrepo.git"
+echo "----IF ERROR ONLY then SET FOLLOW----"
+echo "git remote set-url origin ssh://git@SERVERIP:PORTNUM/git/2021/yourrepo.git"
+echo "----IF ERROR ONLY -------------------"
+echo "git push origin master"
+printf "git push --set-upstream origin master \n"
+echo "# LATER CLONE AS FOLLOW #"
+printf "git clone ssh://git@SERVERIP:PORTNUM/git/2021/yourrepo.git \n"
+echo "# GITNUKE SCRIPT IN ROOT FOLDER git repo follow #"
+echo "git clone ssh://git@SERVERIP:PORTNUM/git/2021/gitnuke.git"
+echo $(chown git:git /git -R)
+echo "Chanhe git for real user in server @SERVERIP chenge for ip address 192.168.0.2 etc : PORTNUM - if not default /git/2021/gitnuke.git"
+echo "defaul location of your gits in /git/2021"
